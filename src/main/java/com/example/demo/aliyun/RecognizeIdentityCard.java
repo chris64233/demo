@@ -33,7 +33,7 @@ public class RecognizeIdentityCard {
     public static void main(String[] args_) throws Exception {
         // "YOUR_ACCESS_KEY_ID", "YOUR_ACCESS_KEY_SECRET" 的生成请参考https://help.aliyun.com/document_detail/175144.html
         // 如果您是用的子账号AccessKey，还需要为子账号授予权限AliyunVIAPIFullAccess，请参考https://help.aliyun.com/document_detail/145025.html
-        com.aliyun.ocr20191230.Client client = RecognizeIdentityCard.createClient("LTAI5tDg2VEJVUHfqdBsLSRy", "314LANBdo34woPa3Ld0QQF33kQOMoM");
+        com.aliyun.ocr20191230.Client client = RecognizeIdentityCard.createClient("", "");
         // 场景一，使用本地文件
          InputStream inputStream = new FileInputStream(new File("C:\\Users\\Administrator\\Desktop\\浙商中拓\\需求\\换电\\资料\\图片\\国徽面.jpg"));
         // 场景二，使用任意可访问的url
