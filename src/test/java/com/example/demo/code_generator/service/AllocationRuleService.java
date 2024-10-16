@@ -9,7 +9,7 @@ import com.baomidou.mybatisplus.extension.service.IService;
  * </p>
  *
  * @author yangchi
- * @since 2024-10-15
+ * @since 2024-10-16
  */
 public interface AllocationRuleService extends IService<AllocationRule> {
 

@@ -11,7 +11,7 @@ import org.springframework.stereotype.Controller;
  * </p>
  *
  * @author yangchi
- * @since 2024-10-15
+ * @since 2024-10-16
  */
 @Controller
 @RequestMapping("/allocationRuleDetail")
