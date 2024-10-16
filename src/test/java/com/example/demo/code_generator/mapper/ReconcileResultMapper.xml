@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.example.demo.code_generator.mapper.ReconcileResultMapper">
+
+    <!-- 通用查询映射结果 -->
+    <resultMap id="BaseResultMap" type="com.example.demo.code_generator.entity.ReconcileResult">
+        <id column="id" property="id" />
+        <result column="mer_no" property="merNo" />
+        <result column="mer_alias" property="merAlias" />
+        <result column="reconcile_date" property="reconcileDate" />
+        <result column="reconcile_state" property="reconcileState" />
+        <result column="reconcile_result" property="reconcileResult" />
+        <result column="order_amt" property="orderAmt" />
+        <result column="trade_amt" property="tradeAmt" />
+        <result column="comm_fee" property="commFee" />
+        <result column="service_fee" property="serviceFee" />
+        <result column="discount_amt" property="discountAmt" />
+        <result column="refund_amt" property="refundAmt" />
+        <result column="refund_trade_amt" property="refundTradeAmt" />
+        <result column="refund_comm_fee" property="refundCommFee" />
+        <result column="refund_service_fee" property="refundServiceFee" />
+        <result column="settle_amt" property="settleAmt" />
+        <result column="pay_channel" property="payChannel" />
+        <result column="store_id" property="storeId" />
+        <result column="store_name" property="storeName" />
+        <result column="err_num" property="errNum" />
+    </resultMap>
+
+    <!-- 通用查询结果列 -->
+    <sql id="Base_Column_List">
+        id, mer_no, mer_alias, reconcile_date, reconcile_state, reconcile_result, order_amt, trade_amt, comm_fee, service_fee, discount_amt, refund_amt, refund_trade_amt, refund_comm_fee, refund_service_fee, settle_amt, pay_channel, store_id, store_name, err_num
+    </sql>
+
+</mapper>

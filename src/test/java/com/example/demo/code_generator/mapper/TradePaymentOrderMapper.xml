@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.example.demo.code_generator.mapper.TradePaymentOrderMapper">
+
+    <!-- 通用查询映射结果 -->
+    <resultMap id="BaseResultMap" type="com.example.demo.code_generator.entity.TradePaymentOrder">
+        <id column="id" property="id" />
+        <result column="trx_no" property="trxNo" />
+        <result column="third_order_id" property="thirdOrderId" />
+        <result column="trx_type" property="trxType" />
+        <result column="merchant_order_no" property="merchantOrderNo" />
+        <result column="order_amount" property="orderAmount" />
+        <result column="fee" property="fee" />
+        <result column="service_fee" property="serviceFee" />
+        <result column="service_rate" property="serviceRate" />
+        <result column="lock_balance" property="lockBalance" />
+        <result column="order_time" property="orderTime" />
+        <result column="status" property="status" />
+        <result column="product_name" property="productName" />
+        <result column="product_code" property="productCode" />
+        <result column="order_from" property="orderFrom" />
+        <result column="pay_way_code" property="payWayCode" />
+        <result column="pay_way_name" property="payWayName" />
+        <result column="remark" property="remark" />
+        <result column="pay_type_code" property="payTypeCode" />
+        <result column="pay_type_name" property="payTypeName" />
+        <result column="merchant_no" property="merchantNo" />
+        <result column="account_no" property="accountNo" />
+        <result column="user_id" property="userId" />
+        <result column="order_date" property="orderDate" />
+        <result column="order_ip" property="orderIp" />
+        <result column="order_referer_url" property="orderRefererUrl" />
+        <result column="return_url" property="returnUrl" />
+        <result column="notify_url" property="notifyUrl" />
+        <result column="cancel_reason" property="cancelReason" />
+        <result column="order_period" property="orderPeriod" />
+        <result column="expire_time" property="expireTime" />
+        <result column="fund_into_type" property="fundIntoType" />
+        <result column="is_refund" property="isRefund" />
+        <result column="refund_times" property="refundTimes" />
+        <result column="success_refund_amount" property="successRefundAmount" />
+        <result column="pay_channel_id" property="payChannelId" />
+        <result column="settle_record_id" property="settleRecordId" />
+        <result column="sales_promotion_id" property="salesPromotionId" />
+        <result column="order_id" property="orderId" />
+        <result column="admin_id" property="adminId" />
+        <result column="version" property="version" />
+        <result column="create_time" property="createTime" />
+        <result column="modifier" property="modifier" />
+        <result column="creator" property="creator" />
+        <result column="modify_time" property="modifyTime" />
+        <result column="allo_rule_id" property="alloRuleId" />
+        <result column="allo_rule_name" property="alloRuleName" />
+        <result column="err_msg" property="errMsg" />
+        <result column="complete_time" property="completeTime" />
+    </resultMap>
+
+    <!-- 通用查询结果列 -->
+    <sql id="Base_Column_List">
+        id, trx_no, third_order_id, trx_type, merchant_order_no, order_amount, fee, service_fee, service_rate, lock_balance, order_time, status, product_name, product_code, order_from, pay_way_code, pay_way_name, remark, pay_type_code, pay_type_name, merchant_no, account_no, user_id, order_date, order_ip, order_referer_url, return_url, notify_url, cancel_reason, order_period, expire_time, fund_into_type, is_refund, refund_times, success_refund_amount, pay_channel_id, settle_record_id, sales_promotion_id, order_id, admin_id, version, create_time, modifier, creator, modify_time, allo_rule_id, allo_rule_name, err_msg, complete_time
+    </sql>
+
+</mapper>

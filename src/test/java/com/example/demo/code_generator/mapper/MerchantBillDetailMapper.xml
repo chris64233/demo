@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.example.demo.code_generator.mapper.MerchantBillDetailMapper">
+
+    <!-- 通用查询映射结果 -->
+    <resultMap id="BaseResultMap" type="com.example.demo.code_generator.entity.MerchantBillDetail">
+        <id column="bank_trx_no" property="bankTrxNo" />
+        <result column="plat_order_no" property="platOrderNo" />
+        <result column="trade_amt" property="tradeAmt" />
+        <result column="comm_fee" property="commFee" />
+        <result column="service_fee" property="serviceFee" />
+        <result column="discount_amt" property="discountAmt" />
+        <result column="settle_amt" property="settleAmt" />
+        <result column="trade_type" property="tradeType" />
+        <result column="pay_type" property="payType" />
+        <result column="trade_time" property="tradeTime" />
+        <result column="complete_time" property="completeTime" />
+        <result column="status" property="status" />
+        <result column="txn_status" property="txnStatus" />
+        <result column="mer_no" property="merNo" />
+        <result column="main_bank_trx_no" property="mainBankTrxNo" />
+        <result column="main_plat_order_no" property="mainPlatOrderNo" />
+        <result column="reconcile_flag" property="reconcileFlag" />
+    </resultMap>
+
+    <!-- 通用查询结果列 -->
+    <sql id="Base_Column_List">
+        bank_trx_no, plat_order_no, trade_amt, comm_fee, service_fee, discount_amt, settle_amt, trade_type, pay_type, trade_time, complete_time, status, txn_status, mer_no, main_bank_trx_no, main_plat_order_no, reconcile_flag
+    </sql>
+
+</mapper>

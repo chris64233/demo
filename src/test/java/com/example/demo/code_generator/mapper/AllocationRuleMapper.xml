@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.example.demo.code_generator.mapper.AllocationRuleMapper">
+
+    <!-- 通用查询映射结果 -->
+    <resultMap id="BaseResultMap" type="com.example.demo.code_generator.entity.AllocationRule">
+        <id column="id" property="id" />
+        <result column="rule_no" property="ruleNo" />
+        <result column="rule_name" property="ruleName" />
+        <result column="rule_type" property="ruleType" />
+        <result column="total_rate" property="totalRate" />
+        <result column="status" property="status" />
+        <result column="deleted" property="deleted" />
+        <result column="mer_no" property="merNo" />
+        <result column="effective_date" property="effectiveDate" />
+        <result column="ineffective_date" property="ineffectiveDate" />
+        <result column="state" property="state" />
+        <result column="comm_allocation_type" property="commAllocationType" />
+        <result column="deposit_mer_no" property="depositMerNo" />
+        <result column="plat_rate" property="platRate" />
+        <result column="rule_msg" property="ruleMsg" />
+        <result column="comment" property="comment" />
+        <result column="creator" property="creator" />
+        <result column="modifier" property="modifier" />
+        <result column="create_time" property="createTime" />
+        <result column="modify_time" property="modifyTime" />
+    </resultMap>
+
+    <!-- 通用查询结果列 -->
+    <sql id="Base_Column_List">
+        id, rule_no, rule_name, rule_type, total_rate, status, deleted, mer_no, effective_date, ineffective_date, state, comm_allocation_type, deposit_mer_no, plat_rate, rule_msg, comment, creator, modifier, create_time, modify_time
+    </sql>
+
+</mapper>

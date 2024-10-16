@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.example.demo.code_generator.mapper.PackageRuleRelationMapper">
+
+    <!-- 通用查询映射结果 -->
+    <resultMap id="BaseResultMap" type="com.example.demo.code_generator.entity.PackageRuleRelation">
+        <id column="id" property="id" />
+        <result column="store_package_id" property="storePackageId" />
+        <result column="rule_no" property="ruleNo" />
+        <result column="create_time" property="createTime" />
+        <result column="modify_time" property="modifyTime" />
+        <result column="modifier" property="modifier" />
+        <result column="creator" property="creator" />
+        <result column="deleted" property="deleted" />
+    </resultMap>
+
+    <!-- 通用查询结果列 -->
+    <sql id="Base_Column_List">
+        id, store_package_id, rule_no, create_time, modify_time, modifier, creator, deleted
+    </sql>
+
+</mapper>

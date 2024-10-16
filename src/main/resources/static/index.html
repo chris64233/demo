@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/html">
+<head>
+    <meta charset="UTF-8">
+    <title>fastdfs文件上传下载</title>
+</head>
+<body>
+    <div>
+        <form action="/fastdfs/upload" method="post" enctype="multipart/form-data">
+            <input type="file" name="file">
+            <input type="submit" value="上传">
+        </form>
+        </br>
+
+        <! -- 下载文件 -->
+        <form action="/fastdfs/download" method="post">
+            <span>groupName : </span><input type="text" name="groupName">
+            <span>文件名 : </span><input type="text" name="fileKey">
+            <input type="submit" value="下载">
+        </form>
+        <! -- 下载文件2 -->
+        <form action="/fastdfs/download2" method="post">
+            <span>url : </span><input type="text" name="url">
+            <input type="submit" value="下载2">
+        </form>
+
+        </br>
+
+        <!-- 删除文件 -->
+        <form action="/fastdfs/delete" method="post">
+            <span>文件名 : </span> <input type="text" name="filePath">
+            <input type="submit" value="删除">
+        </form>
+    </div>
+
+
+</body>
+</html>

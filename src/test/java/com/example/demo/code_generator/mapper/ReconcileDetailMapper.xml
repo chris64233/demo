@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.example.demo.code_generator.mapper.ReconcileDetailMapper">
+
+    <!-- 通用查询映射结果 -->
+    <resultMap id="BaseResultMap" type="com.example.demo.code_generator.entity.ReconcileDetail">
+        <id column="id" property="id" />
+        <result column="reconcile_result_id" property="reconcileResultId" />
+        <result column="order_no" property="orderNo" />
+        <result column="sub_order_no" property="subOrderNo" />
+        <result column="order_type" property="orderType" />
+        <result column="trade_state" property="tradeState" />
+        <result column="reconcile_state" property="reconcileState" />
+        <result column="reconcile_result" property="reconcileResult" />
+        <result column="order_amt" property="orderAmt" />
+        <result column="trade_amt" property="tradeAmt" />
+        <result column="comm_fee" property="commFee" />
+        <result column="service_fee" property="serviceFee" />
+        <result column="discount_amt" property="discountAmt" />
+        <result column="settle_amt" property="settleAmt" />
+        <result column="pay_channel" property="payChannel" />
+        <result column="pay_way" property="payWay" />
+        <result column="request_time" property="requestTime" />
+        <result column="trade_time" property="tradeTime" />
+        <result column="complete_time" property="completeTime" />
+        <result column="settle_state" property="settleState" />
+        <result column="mer_no" property="merNo" />
+        <result column="mer_alias" property="merAlias" />
+        <result column="store_id" property="storeId" />
+        <result column="store_name" property="storeName" />
+        <result column="rule_no" property="ruleNo" />
+    </resultMap>
+
+    <!-- 通用查询结果列 -->
+    <sql id="Base_Column_List">
+        id, reconcile_result_id, order_no, sub_order_no, order_type, trade_state, reconcile_state, reconcile_result, order_amt, trade_amt, comm_fee, service_fee, discount_amt, settle_amt, pay_channel, pay_way, request_time, trade_time, complete_time, settle_state, mer_no, mer_alias, store_id, store_name, rule_no
+    </sql>
+
+</mapper>

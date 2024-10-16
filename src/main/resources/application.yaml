@@ -1,0 +1,142 @@
+server:
+  port: 9998
+spring:
+  application:
+    name: demo
+  datasource:
+    username: root
+    password: 12345678
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://127.0.0.1:3306/settlement?serverTimezone=Asia/Shanghai&useUnicode=true&characterEncoding=utf8&useSSL=false
+    type: com.alibaba.druid.pool.DruidDataSource
+    druid:
+      initial-size: 20
+      min-idle: 20
+      max-active: 100
+      max-wait: 60000
+  codec:
+    max-in-memory-size: 8MB
+  redis:
+    host: localhost
+    port: 6379
+    database: 0
+    password: 123456
+    lettuce:
+      pool:
+        max-active: 20
+        max-idle: 8
+        max-wait: -1
+        min-idle: 0
+#    password: 12345678
+  rabbitmq:
+    #bizKey: 42DDF4E1617F271E1E86913F56135A6F
+    #ndBizKey: V8PEMH8T2FGEUR27ULCUQVWHBZYYF7EX
+#    zfBizKey: A42DBA5EF4191C420E8DF43C3C7CEAF4
+
+    host: amqp-cn-lbj3m9p4e007.cn-hangzhou.amqp-16.net.mq.amqp.aliyuncs.com
+    port: 5672
+    username: MjphbXFwLWNuLWxiajNtOXA0ZTAwNzpMVEFJNXRBN0pweUh5QjVKcEd4c2g3ajI=
+    password: MkIzNkYwQUE2QTc4MkE1MTc3ODU1NUZGNENFNDZCMUUwMzBBQjRDMzoxNzA4MzM0Njk0Nzk1
+    virtual-host: /test
+
+#    host: 118.178.187.55
+#    password: qhkj123456
+#    port: 5772
+#    username: user
+    listener:
+      direct:
+        concurrency: 2
+        max-concurrency: 20
+        prefetch: 20
+#        acknowledge-mode: manual
+      simple:
+        concurrency: 2
+        max-concurrency: 20
+        prefetch: 20
+#        acknowledge-mode: manual
+jetcache:
+  statIntervalMinutes: 15
+  areaInCacheName: false
+  hidePackages: com.alibaba
+  local:
+    default:
+      type: caffeine
+      limit: 100
+      keyConvertor: fastjson
+      expireAfterWriteInMillis: 100000
+  remote:
+    default:
+      type: redis.lettuce
+      keyConvertor: fastjson
+      valueEncoder: kryo
+      valueDecoder: kryo
+      uri: redis://${spring.redis.host}:${spring.redis.port}
+xxl:
+  job:
+    admin:
+      addresses: http://127.0.0.1:9000/xxl-job-admin
+    accessToken: default_token
+    executor:
+      appname: demo
+      address:
+      ip: 127.0.0.1
+      port: 9999
+      logpath: ./data/applogs/xxl-job/jobhandler
+      logretentiondays: 30
+
+
+
+
+
+
+
+
+move:
+  gateway:
+    switched: false
+  history:
+    mcActivity:
+      maxUpdateTime: 2024-02-08 06:03:17
+    mcActivityModuleDesc:
+      maxUpdateTime: 2024-02-08 06:03:17
+    mcActivityUser:
+      maxUpdateTime: 2024-02-08 06:03:17
+    mcQuestionAnswer:
+      maxUpdateTime: 2024-02-08 06:03:17
+    mcOperationRecord:
+      maxUpdateTime: 2024-02-08 06:03:17
+  stage: 1
+
+
+adapay:
+  linghan:
+    appId: app_c10fd4be-fd28-4dca-bf2a-11375aee0289
+    apiKey: api_live_75cd1166-4c88-4537-84d8-38051a8ae466
+    mockApiKey: api_test_39da431e-fa8b-4b00-afd8-666dc09b3fca
+    rsaPrivateKey: MIICdgIBADANBgkqhkiG9w0BAQEFAASCAmAwggJcAgEAAoGBAIOcd5s8WZQi3p39ImgrUoJq/ydByK3b3S/lvuqd3BquMihKFVUbrVarBuq1/VM9QOdXlPhaWzZW1C9rdw50hFj4rsiY9HGbwuZcXLsS8W2q6b2LCZCBO9/yztPnnhv+np3uv/EWKT3mY4jEU6mCe2hE1mrQvkU/J9fb56ZR6eb5AgMBAAECgYBnefLUG5v2i3/qSaburfkeTw+zhtZIU5BRY1o6zsjKNWF8Kdsh4jPj623xxgqZkpRgD40xwqDqVVRYwC6IL/YJcHUXhJQHwT6fer2igD1cjKIxT91V5aQaTnStkcHB0q+UeCd/uhZpQsSi08dwr9tCDfWNZU47VvPYyMEDRhOlMQJBAOrSBFMkrPFGkcfI6u08ycOjv5NJ9HSeVHeYmL3xDX4Dvm3ZaKZIwo7NKuPPua02IWs1ZmVOxgzgV2pLzVFgC/0CQQCPe1vi03fKYpI/7ChaxHXT5LqA3AtNyMEPsZAz1ubIqGQVReeJZfAOSn+PUAp8g0Qrz6H9MQXLu7nLZDFm7hGtAkBtG0Y9J5ZfyS1lSdq2fn81MvmJw1wdb4/JvhKCduWQ/sZVniX81WPpHDVogpVAgR1IBhjcy5xEUVzsm+n7fIg1AkBAh8ecrWUL5edGzoybvg4MPavPtqdy1V5XE5H6bqWfC3TvyF/JAMrFcqYKK4J724G2foypVfn4VjbKjgZV966FAkEAoVfmS/dsODk7mL6YkaFebSpO+G8YqDIZ5fr2nf/50QT5pAuWlehu91OSyX22mfQnxKYbDdErWpJA1zRswPCTQA==
+    zipFileName:
+
+
+
+fdfs:
+  so-timeout: 1501
+  connect-timeout: 601
+  thumb-image:             #缩略图生成参数
+    width: 150
+    height: 150
+  tracker-list:            #TrackerList参数,支持多个
+    - 10.0.9.146:22122
+  pool:
+    #从池中借出的对象的最大数目（配置为-1表示不限制）
+    max-total: -1
+    #获取连接时的最大等待毫秒数(默认配置为5秒)
+    max-wait-millis: 5000
+    #每个key最大连接数
+    max-total-per-key: 50
+    #每个key对应的连接池最大空闲连接数
+    max-idle-per-key: 10
+    #每个key对应的连接池最小空闲连接数
+    min-idle-per-key: 5
+  baseUrl: http://10.0.9.146:80/
+
+

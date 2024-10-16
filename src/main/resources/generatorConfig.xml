@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE generatorConfiguration
+        PUBLIC "-//mybatis.org//DTD MyBatis Generator Configuration 1.0//EN"
+        "http://mybatis.org/dtd/mybatis-generator-config_1_0.dtd">
+<!-- 配置生成器 -->
+<generatorConfiguration>
+
+    <context id="mysql" targetRuntime="MyBatis3" >
+
+        <!-- 实体类生成序列化属性-->
+        <plugin type="org.mybatis.generator.plugins.SerializablePlugin" />
+        <!-- 实体类重写HashCode()和equals()-->
+        <plugin type="org.mybatis.generator.plugins.EqualsHashCodePlugin" />
+        <!-- 实体类重写toString() -->
+        <plugin type="org.mybatis.generator.plugins.ToStringPlugin" />
+
+        <commentGenerator>
+            <!-- 是否去除自动生成的注释 -->
+            <property name="suppressAllComments" value="true"/>
+            <!-- 生成注释是否带时间戳-->
+            <property name="suppressDate" value="true"/>
+            <!-- 生成的Java文件的编码格式 -->
+            <property name="javaFileEncoding" value="utf-8"/>
+            <!-- 格式化java代码-->
+            <property name="javaFormatter" value="org.mybatis.generator.api.dom.DefaultJavaFormatter" />
+            <!-- 格式化XML代码-->
+            <property name="xmlFormatter" value="org.mybatis.generator.api.dom.DefaultXmlFormatter" />
+        </commentGenerator>
+        <!-- 必须要有的，使用这个配置链接数据库
+            @TODO:是否可以扩展
+         -->
+        <jdbcConnection driverClass="com.mysql.jdbc.Driver" connectionURL="jdbc:mysql://127.0.0.1:3306/backend-activity?useUnicode=true&amp;useSSL=false" userId="root" password="12345678">
+            <!-- 这里面可以设置property属性，每一个property属性都设置到配置的Driver上 -->
+        </jdbcConnection>
+
+
+        <!-- java类型处理器：处理DB中的类型到Java中的类型 -->
+        <javaTypeResolver type="org.mybatis.generator.internal.types.JavaTypeResolverDefaultImpl">
+            <!-- 是否有效识别DB中的BigDecimal类型 -->
+            <property name="forceBigDecimals" value="true"/>
+        </javaTypeResolver>
+
+        <!-- java模型创建器，是必须要的元素
+            负责：1，key类（见context的defaultModelType）；2，java类；3，查询类
+            targetPackage：生成的类要放的包，真实的包受enableSubPackages属性控制；
+            targetProject：目标项目，指定一个存在的目录下，生成的内容会放到指定目录中，如果目录不存在，MBG不会自动建目录
+         -->
+        <javaModelGenerator targetPackage="com.example.demo.domain" targetProject="src/main/java">
+            <!--  for MyBatis3/MyBatis3Simple
+                自动为每一个生成的类创建一个构造方法，构造方法包含了所有的field；而不是使用setter；
+             -->
+            <property name="enableSubPackages" value="false"/>
+            <property name="trimStrings" value="true"/>
+        </javaModelGenerator>
+
+        <sqlMapGenerator targetPackage="mapper" targetProject="src/main/resources">
+            <property name="enableSubPackages" value="true"/>
+        </sqlMapGenerator>
+
+        <javaClientGenerator targetPackage="com.example.demo.mapper" type="XMLMAPPER" targetProject="src/main/java">
+            <property name="enableSubPackages" value="true"/>
+        </javaClientGenerator>
+
+        <table tableName="design_material" domainObjectName="DesignMaterial"
+               enableCountByExample="false"
+               enableUpdateByExample="false"
+               enableDeleteByExample="false"
+               enableSelectByExample="false"
+               selectByExampleQueryId="false">
+        </table>
+    </context>
+
+</generatorConfiguration>
