@@ -7,7 +7,7 @@ spring:
     username: root
     password: 12345678
     driver-class-name: com.mysql.cj.jdbc.Driver
-    url: jdbc:mysql://127.0.0.1:3306/settlement?serverTimezone=Asia/Shanghai&useUnicode=true&characterEncoding=utf8&useSSL=false
+    url: jdbc:mysql://127.0.0.1:3306/test?serverTimezone=Asia/Shanghai&useUnicode=true&characterEncoding=utf8&useSSL=false
     type: com.alibaba.druid.pool.DruidDataSource
     druid:
       initial-size: 20
@@ -62,6 +62,17 @@ spring:
         concurrency: 2
         max-concurrency: 20
         prefetch: 20
+
+  flyway:
+    enabled: true
+    locations:
+      - classpath:db/migration
+    out-of-order: false
+    validate-on-migrate: true
+    clean-disabled: false
+    baseline-on-migrate: true
+    table: flyway_schema_history
+    # baseline-version: 1.0.0
 
 jetcache:
   statIntervalMinutes: 15
@@ -159,5 +170,8 @@ fdfs:
 
 zmdms:
   redission: open
+
+
+
 
 
