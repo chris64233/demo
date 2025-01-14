@@ -3,23 +3,39 @@ package com.example.demo;
 
 import cn.hutool.core.collection.CollUtil;
 import cn.hutool.core.convert.Convert;
+import cn.hutool.core.date.DateTime;
+import cn.hutool.core.date.DateUnit;
 import cn.hutool.core.date.DateUtil;
 import cn.hutool.core.io.FileUtil;
 import cn.hutool.core.text.CharSequenceUtil;
+import cn.hutool.core.text.StrPool;
+import cn.hutool.core.util.NumberUtil;
+import cn.hutool.core.util.StrUtil;
+import cn.hutool.crypto.digest.DigestUtil;
+import cn.hutool.crypto.digest.MD5;
 import cn.hutool.http.HttpUtil;
+import cn.hutool.json.JSONUtil;
 import com.alibaba.fastjson.JSONObject;
+import com.example.demo.domain.BatteryInfoLog;
+import com.example.demo.domain.DoorInfoLog;
 import com.example.demo.domain.Student;
 import com.example.demo.test.ApiRequestDto;
-import org.slf4j.MDC;
 
 import javax.crypto.Mac;
 import javax.crypto.spec.SecretKeySpec;
 import java.io.File;
 import java.math.BigDecimal;
 import java.nio.charset.StandardCharsets;
+import java.text.DecimalFormat;
+import java.time.LocalTime;
 import java.util.*;
+import java.util.concurrent.Callable;
+import java.util.concurrent.ExecutionException;
+import java.util.concurrent.FutureTask;
+import java.util.stream.Collectors;
 
 import static cn.hutool.core.text.StrPool.COMMA;
+import static cn.hutool.core.text.StrPool.DASHED;
 
 public class RabbitMqNettyClientSendMsg {
     @org.junit.Test
@@ -187,6 +203,177 @@ public class RabbitMqNettyClientSendMsg {
         list2.add("d");
         ArrayList<String> list = new ArrayList<>(CollUtil.union(list1, list2));
         System.out.println(list);
+        Integer a = 1;
+        System.out.println(a.equals(null));
 
     }
+
+
+    @org.junit.Test
+    public void test16() {
+        // 不大于当日
+        System.out.println(DateUtil.endOfDay(DateUtil.date()));
+        System.out.println(DateUtil.date());
+        long between = DateUtil.between(DateUtil.date(), DateUtil.date(), DateUnit.DAY);
+        System.out.println(between);
+        System.out.println(System.currentTimeMillis());
+    }
+
+    @org.junit.Test
+    public void test17() {
+        List<DoorInfoLog> doors = new ArrayList<>();
+        DoorInfoLog door = new DoorInfoLog();
+        door.setDoorId("1");
+        door.setDevId("123");
+        BatteryInfoLog battery = new BatteryInfoLog();
+        battery.setSn("BT001");
+        door.setBatteryInfoLog(battery);
+        doors.add(door);
+
+        System.out.println(JSONUtil.toJsonStr(doors));
+        System.out.println(formatSingeVol("4111"));
+    }
+
+    private String formatSingeVol(String value) {
+        if (StrUtil.isBlank(value)) {
+            return value;
+        }
+
+        try {
+            double number = NumberUtil.parseDouble(value);
+            double result = number / 1000.0;
+            DecimalFormat decimalFormat = new DecimalFormat("#.000");
+
+            return decimalFormat.format(result);
+        } catch (NumberFormatException e) {
+            return value;
+        }
+    }
+
+    @org.junit.Test
+    public void test18() {
+        StringBuilder sb = new StringBuilder();
+        sb.append("a").append(",").append("b").append(",");
+        String singleVol = sb.toString();
+        System.out.println(singleVol.substring(0, singleVol.length() - 1));
+    }
+
+    @org.junit.Test
+    public void test19() {
+        Map<String, DoorInfoLog> doorInfos = new HashMap<>();
+        DoorInfoLog door = new DoorInfoLog();
+        System.out.println(CollUtil.isEmpty(doorInfos.values()));
+        if (CollUtil.isNotEmpty(doorInfos.values())) {
+            System.out.println(doorInfos.values());
+        }
+
+        String input = java.util.UUID.randomUUID().toString();
+
+        // 生成MD5哈希值
+        String md5Key = DigestUtil.md5Hex(input);
+        System.out.println(md5Key);
+        System.out.println(md5Key.toUpperCase());
+    }
+
+    @org.junit.Test
+    public void test20() {
+        String a = "";
+        System.out.println(a.isEmpty());
+    }
+
+    @org.junit.Test
+    public void test21() {
+        String a = "  te  st ";
+        System.out.println(CharSequenceUtil.trim(a));
+        System.out.println(StrUtil.removeAll(a, StrPool.C_SPACE));
+        System.out.println(CharSequenceUtil.removeAll(a, StrPool.C_SPACE));
+    }
+
+    @org.junit.Test
+    public void test22() {
+        System.out.println(Integer.toHexString(10));
+        System.out.println(Integer.toHexString(11));
+        System.out.println(DateUtil.beginOfMonth(DateUtil.date()));
+        System.out.println(DateUtil.endOfMonth(DateUtil.date()));
+    }
+
+    @org.junit.Test
+    public void test23() {
+        String a = "Windows 10";
+        System.out.println(a.toUpperCase().contains("WIN"));
+    }
+
+    @org.junit.Test
+    public void test24() {
+        String dateTimeStr = "2024-12-29 18:00:00";
+        Date date = DateUtil.parse(dateTimeStr);
+        System.out.println(DateUtil.between(date, DateUtil.date(), DateUnit.DAY));
+        System.out.println(DateUtil.between(DateUtil.date(), date, DateUnit.DAY));
+    }
+
+    @org.junit.Test
+    public void test25() {
+        List<String> stringList = Arrays.asList("apple", "banana", "cherry");
+        String result = StrUtil.join(COMMA, stringList);
+        System.out.println(result);
+
+        List<String> lists = Arrays.asList(StrUtil.split(result, COMMA));
+        System.out.println(lists);
+
+    }
+
+    @org.junit.Test
+    public void test26() {
+        List<String> periods = Arrays.asList("10:00:00-23:59:59", "11:00-15:43", "18:00-20:00");
+        LocalTime now = LocalTime.now();
+        boolean isWithinAnyRange = periods.stream()
+                .anyMatch(range -> isWithinRange(range, now));
+        System.out.println(isWithinAnyRange);
+
+    }
+
+    private static boolean isWithinRange(String range, LocalTime time) {
+        String[] parts = range.split(DASHED);
+        LocalTime startTime = LocalTime.parse(parts[0]);
+        LocalTime endTime = LocalTime.parse(parts[1]);
+        if (!startTime.isBefore(endTime)) {
+            throw new RuntimeException("结束时间必须大于开始时间");
+        }
+
+        return !time.isBefore(startTime) && !time.isAfter(endTime);
+    }
+
+    @org.junit.Test
+    public void test27() {
+        List<Object> listOfObjects = new ArrayList<>();
+        listOfObjects.add(1);
+        listOfObjects.add(2);
+        listOfObjects.add(3);
+
+        List<Integer> listOfIntegers = listOfObjects.stream()
+                .map(Convert::toInt)
+                .collect(Collectors.toList());
+
+        listOfIntegers.forEach(System.out::println);
+    }
+
+    @org.junit.Test
+    public void test28() throws ExecutionException, InterruptedException {
+        FutureTask<Integer> futureTask = new FutureTask<>(new TestTask());
+        new Thread(futureTask).start();
+        Integer result = futureTask.get();
+        System.out.println(result);
+
+    }
+
+    class TestTask implements Callable<Integer> {
+
+        @Override
+        public Integer call() throws Exception {
+            System.out.println("call invoked...");
+            Thread.sleep(3000);
+            return 1;
+        }
+    }
+
 }

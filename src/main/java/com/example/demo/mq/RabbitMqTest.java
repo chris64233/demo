@@ -12,8 +12,8 @@ public class RabbitMqTest {
     @Autowired
     private MessageSender messageSender;
 
-    @Autowired
-    private RabbitAdmin rabbitAdmin;
+//    @Autowired
+//    private RabbitAdmin rabbitAdmin;
 
     @RequestMapping("/test/sendMessage")
     public void sendMessage() {
@@ -23,7 +23,7 @@ public class RabbitMqTest {
     @RequestMapping("/zf/sendMessage")
     public void sendMessageZf() {
 //        String cabinetInfo = "{\"type\":1,\"manufacturer\":1,\"time\":\"1989174468000\",\"data\":{\"ueSn\":\"CC123456\",\"lon\":\"120.068554\",\"lat\":\"30.286559\",\"boxNum\":10,\"emptyBoxNum\":1,\"disabledBoxNum\":1,\"temp\":40.5,\"dailyActive\":1,\"todayActive\":1,\"dailyExchangeCount\":1.5,\"todayExchangeCount\":1,\"fullSocBatteryCount\":1,\"chargingBatteryCount\":1,\"yesterdayCharging\":1.1,\"electricityMeter\":1.1,\"exStatus\":0,\"boxList\":[{\"boxSn\":1,\"boxEnableStatus\":1,\"disabledReason\":\"no reason\",\"doorStatus\":0,\"cur\":0.00,\"vol\":53.22,\"batterySoc\":100,\"batterySn\":\"BT123\",\"batteryTemp\":40.5,\"batterySoh\":92}]}}";
-        String cabinetInfo = "{\"type\":1,\"manufacturer\":10005,\"time\":\"1989174468000\",\"data\":{\"ueSn\":\"CC123456\",\"lon\":\"120.068554\",\"lat\":\"30.286559\",\"boxNum\":10,\"emptyBoxNum\":1,\"disabledBoxNum\":1,\"temp\":40.5,\"dailyActive\":1,\"todayActive\":1,\"dailyExchangeCount\":1.5,\"todayExchangeCount\":1,\"fullSocBatteryCount\":1,\"chargingBatteryCount\":1,\"yesterdayCharging\":1.1,\"electricityMeter\":1.1,\"exStatus\":0,\"boxList\":[{\"boxSn\":987,\"boxEnableStatus\":1,\"disabledReason\":\"no reason\",\"doorStatus\":0,\"cur\":0.00,\"vol\":53.22,\"batterySoc\":100,\"batterySn\":\"BT123\",\"batteryTemp\":41,\"batterySoh\":92}]}}";
+        String cabinetInfo = "{\"type\":1,\"manufacturer\":10005,\"time\":\"1731029093948\",\"data\":{\"ueSn\":\"ABC12345\",\"lon\":\"120.068554\",\"lat\":\"30.286559\",\"boxNum\":10,\"emptyBoxNum\":1,\"disabledBoxNum\":1,\"temp\":40.5,\"dailyActive\":1,\"todayActive\":1,\"dailyExchangeCount\":1.5,\"todayExchangeCount\":1,\"fullSocBatteryCount\":1,\"chargingBatteryCount\":1,\"yesterdayCharging\":1.1,\"electricityMeter\":1.1,\"exStatus\":0,\"boxList\":[{\"boxSn\":8,\"boxEnableStatus\":1,\"disabledReason\":\"no reason\",\"doorStatus\":0,\"cur\":0.00,\"vol\":53.22,\"batterySoc\":100,\"batterySn\":\"BT123\",\"batteryTemp\":41,\"batterySoh\":92}]}}";
         messageSender.sendMessage(MqConstant.ZF_EXCHANGE, MqConstant.ZF_ROUTING_KEY, cabinetInfo);
 
 //        String exchangeInfo = "{\"type\":2,\"manufacturer\":1,\"time\":\"1989174468000\",\"data\":[{\"ueSn\":\"123456\",\"operateTime\":\"1989174468000\",\"userName\":\"ccc\",\"phone\":\"15777777777\",\"status\":1,\"returnBatterySn\":\"BT002\",\"returnBatteryTime\":\"1989174468000\",\"takeBatterySn\":\"BT001\",\"takeBatteryTime\":\"1989174468000\",\"returnBoxSn\":1,\"takeBoxSn\":2}]}";
@@ -39,8 +39,12 @@ public class RabbitMqTest {
 //        messageSender.sendMessage(MqConstant.ZF_EXCHANGE, MqConstant.ZF_ROUTING_KEY, parentOrderInfo);
     }
 
-    @RequestMapping("/zf/deleteExchange")
-    public void deleteExchange() {
-        rabbitAdmin.deleteExchange(MqConstant.ZF_EXCHANGE);
+//    @RequestMapping("/zf/deleteExchange")
+//    public void deleteExchange() {
+//        rabbitAdmin.deleteExchange(MqConstant.ZF_EXCHANGE);
+//    }
+
+    public static void main(String[] args) {
+        System.out.println(System.currentTimeMillis());
     }
 }

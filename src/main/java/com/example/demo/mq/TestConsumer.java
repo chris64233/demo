@@ -16,7 +16,7 @@ import java.nio.charset.StandardCharsets;
  *
  * @author zengyizeng
  */
-@Component
+//@Component
 @Slf4j
 public class TestConsumer implements ChannelAwareMessageListener {
 

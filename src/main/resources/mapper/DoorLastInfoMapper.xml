@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.example.demo.dao.mapper.DoorLastInfoMapper">
+
+    <!-- 通用查询映射结果 -->
+    <resultMap id="BaseResultMap" type="com.example.demo.dao.entity.DoorLastInfo">
+                <id column="id" property="id" />
+                <result column="dev_id" property="devId" />
+                <result column="box_sn" property="boxSn" />
+                <result column="status" property="status" />
+                <result column="enable_status" property="enableStatus" />
+                <result column="temp" property="temp" />
+                <result column="charge_status" property="chargeStatus" />
+                <result column="battery_sn" property="batterySn" />
+                <result column="device_time" property="deviceTime" />
+    </resultMap>
+
+    <!-- 通用查询结果列 -->
+    <sql id="Base_Column_List">
+        id, dev_id, box_sn, status, enable_status, temp, charge_status, battery_sn, device_time
+    </sql>
+
+</mapper>

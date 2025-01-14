@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.example.demo.dao.mapper.MerchantAccountMapper">
+
+    <!-- 通用查询映射结果 -->
+    <resultMap id="BaseResultMap" type="com.example.demo.dao.entity.MerchantAccount">
+                <id column="id" property="id" />
+                <result column="mer_no" property="merNo" />
+                <result column="mer_name" property="merName" />
+                <result column="channel" property="channel" />
+                <result column="mer_store_no" property="merStoreNo" />
+                <result column="mer_purpose" property="merPurpose" />
+                <result column="mer_type" property="merType" />
+                <result column="status" property="status" />
+                <result column="deleted" property="deleted" />
+                <result column="mer_alias" property="merAlias" />
+                <result column="mer_tier" property="merTier" />
+                <result column="inst_id" property="instId" />
+                <result column="inst_type" property="instType" />
+                <result column="plat_mer_no" property="platMerNo" />
+                <result column="mer_category" property="merCategory" />
+                <result column="mer_contact_info" property="merContactInfo" />
+                <result column="contacts" property="contacts" />
+                <result column="contacts_phone" property="contactsPhone" />
+                <result column="is_deposit" property="isDeposit" />
+                <result column="comment" property="comment" />
+                <result column="biz_type" property="bizType" />
+                <result column="creator" property="creator" />
+                <result column="modifier" property="modifier" />
+                <result column="create_time" property="createTime" />
+                <result column="modify_time" property="modifyTime" />
+                <result column="account" property="account" />
+                <result column="relation_type" property="relationType" />
+    </resultMap>
+
+    <!-- 通用查询结果列 -->
+    <sql id="Base_Column_List">
+        id, mer_no, mer_name, channel, mer_store_no, mer_purpose, mer_type, status, deleted, mer_alias, mer_tier, inst_id, inst_type, plat_mer_no, mer_category, mer_contact_info, contacts, contacts_phone, is_deposit, comment, biz_type, creator, modifier, create_time, modify_time, account, relation_type
+    </sql>
+
+</mapper>

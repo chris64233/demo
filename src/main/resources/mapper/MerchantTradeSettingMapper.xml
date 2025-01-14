@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.example.demo.dao.mapper.MerchantTradeSettingMapper">
+
+    <!-- 通用查询映射结果 -->
+    <resultMap id="BaseResultMap" type="com.example.demo.dao.entity.MerchantTradeSetting">
+                <id column="id" property="id" />
+                <result column="mer_no" property="merNo" />
+                <result column="app_id" property="appId" />
+                <result column="app_name" property="appName" />
+                <result column="app_secret" property="appSecret" />
+                <result column="public_key" property="publicKey" />
+                <result column="private_key" property="privateKey" />
+                <result column="cashier" property="cashier" />
+                <result column="wechat_app_id" property="wechatAppId" />
+                <result column="wechat_mini_fee" property="wechatMiniFee" />
+                <result column="wechat_app_fee" property="wechatAppFee" />
+                <result column="wechat_official_fee" property="wechatOfficialFee" />
+                <result column="wechat_scan_fee" property="wechatScanFee" />
+                <result column="union_qr_fee" property="unionQrFee" />
+                <result column="union_online_fee" property="unionOnlineFee" />
+                <result column="deleted" property="deleted" />
+                <result column="create_time" property="createTime" />
+                <result column="modify_time" property="modifyTime" />
+    </resultMap>
+
+    <!-- 通用查询结果列 -->
+    <sql id="Base_Column_List">
+        id, mer_no, app_id, app_name, app_secret, public_key, private_key, cashier, wechat_app_id, wechat_mini_fee, wechat_app_fee, wechat_official_fee, wechat_scan_fee, union_qr_fee, union_online_fee, deleted, create_time, modify_time
+    </sql>
+
+</mapper>

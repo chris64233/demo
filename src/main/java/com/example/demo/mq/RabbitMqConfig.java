@@ -4,6 +4,7 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.amqp.core.*;
 import org.springframework.amqp.rabbit.config.SimpleRabbitListenerContainerFactory;
 import org.springframework.amqp.rabbit.connection.CachingConnectionFactory;
+import org.springframework.amqp.rabbit.connection.RabbitConnectionFactoryBean;
 import org.springframework.amqp.rabbit.core.RabbitAdmin;
 import org.springframework.amqp.rabbit.core.RabbitTemplate;
 import org.springframework.beans.factory.annotation.Value;
@@ -16,7 +17,7 @@ import java.util.Map;
 /**
  * 配置消息队列，路由、监听消费信息
  */
-@Configuration
+//@Configuration
 @Slf4j
 public class RabbitMqConfig {
 
@@ -35,26 +36,26 @@ public class RabbitMqConfig {
     @Value("${spring.rabbitmq.virtual-host:/}")
     private String virtualHost;
 
-    @Bean
-    public CachingConnectionFactory connectionFactory() {
-        CachingConnectionFactory connectionFactory = new CachingConnectionFactory();
-        connectionFactory.setHost(host);
-        connectionFactory.setPort(port);
-        connectionFactory.setUsername(username);
-        connectionFactory.setPassword(password);
-        connectionFactory.setVirtualHost(virtualHost);
-        return connectionFactory;
-    }
+//    @Bean
+//    public CachingConnectionFactory connectionFactory() {
+//        CachingConnectionFactory connectionFactory = new CachingConnectionFactory();
+//        connectionFactory.setHost(host);
+//        connectionFactory.setPort(port);
+//        connectionFactory.setUsername(username);
+//        connectionFactory.setPassword(password);
+//        connectionFactory.setVirtualHost(virtualHost);
+//        return connectionFactory;
+//    }
 
 
-    @Bean
-    public SimpleRabbitListenerContainerFactory rabbitListenerContainerFactory() {
-        SimpleRabbitListenerContainerFactory factory = new SimpleRabbitListenerContainerFactory();
-        factory.setConnectionFactory(connectionFactory());
-        factory.setConcurrentConsumers(3);
-        factory.setMaxConcurrentConsumers(10);
-        return factory;
-    }
+//    @Bean
+//    public SimpleRabbitListenerContainerFactory rabbitListenerContainerFactory() {
+//        SimpleRabbitListenerContainerFactory factory = new SimpleRabbitListenerContainerFactory();
+//        factory.setConnectionFactory(connectionFactory());
+//        factory.setConcurrentConsumers(3);
+//        factory.setMaxConcurrentConsumers(10);
+//        return factory;
+//    }
 
 
     /**
@@ -133,7 +134,7 @@ public class RabbitMqConfig {
     }
 
     @Bean
-    public RabbitAdmin rabbitAdmin() {
-        return new RabbitAdmin(connectionFactory());
+    public RabbitAdmin rabbitAdmin(CachingConnectionFactory connectionFactory) {
+        return new RabbitAdmin(connectionFactory);
     }
 }

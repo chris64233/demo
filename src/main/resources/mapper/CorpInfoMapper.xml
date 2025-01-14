@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.example.demo.dao.mapper.CorpInfoMapper">
+
+    <!-- 通用查询映射结果 -->
+    <resultMap id="BaseResultMap" type="com.example.demo.dao.entity.CorpInfo">
+                <id column="id" property="id" />
+                <result column="mer_no" property="merNo" />
+                <result column="license_type" property="licenseType" />
+                <result column="license_no" property="licenseNo" />
+                <result column="corp_name" property="corpName" />
+                <result column="address" property="address" />
+                <result column="license_valid_start" property="licenseValidStart" />
+                <result column="license_valid_end" property="licenseValidEnd" />
+                <result column="business_scope" property="businessScope" />
+                <result column="license_attach_file" property="licenseAttachFile" />
+                <result column="legal_person" property="legalPerson" />
+                <result column="telephone" property="telephone" />
+                <result column="legal_cert_id" property="legalCertId" />
+                <result column="legal_phone" property="legalPhone" />
+                <result column="cert_valid_start" property="certValidStart" />
+                <result column="cert_valid_end" property="certValidEnd" />
+                <result column="cert_attach_file" property="certAttachFile" />
+                <result column="create_time" property="createTime" />
+                <result column="modify_time" property="modifyTime" />
+    </resultMap>
+
+    <!-- 通用查询结果列 -->
+    <sql id="Base_Column_List">
+        id, mer_no, license_type, license_no, corp_name, address, license_valid_start, license_valid_end, business_scope, license_attach_file, legal_person, telephone, legal_cert_id, legal_phone, cert_valid_start, cert_valid_end, cert_attach_file, create_time, modify_time
+    </sql>
+
+</mapper>

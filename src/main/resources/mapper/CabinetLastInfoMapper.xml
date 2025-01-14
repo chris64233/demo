@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.example.demo.dao.mapper.CabinetLastInfoMapper">
+
+    <!-- 通用查询映射结果 -->
+    <resultMap id="BaseResultMap" type="com.example.demo.dao.entity.CabinetLastInfo">
+                <id column="id" property="id" />
+                <result column="dev_id" property="devId" />
+                <result column="box_info" property="boxInfo" />
+                <result column="cabinet_current" property="cabinetCurrent" />
+                <result column="cabinet_temp" property="cabinetTemp" />
+                <result column="cabinet_vol" property="cabinetVol" />
+                <result column="hard_version" property="hardVersion" />
+                <result column="port_info" property="portInfo" />
+                <result column="sim_iccid" property="simIccid" />
+                <result column="soft_version" property="softVersion" />
+                <result column="cabinet_rssi" property="cabinetRssi" />
+                <result column="electric_meter" property="electricMeter" />
+                <result column="work_vol" property="workVol" />
+                <result column="lon" property="lon" />
+                <result column="lat" property="lat" />
+                <result column="device_time" property="deviceTime" />
+                <result column="is_full" property="isFull" />
+                <result column="maker_code" property="makerCode" />
+    </resultMap>
+
+    <!-- 通用查询结果列 -->
+    <sql id="Base_Column_List">
+        id, dev_id, box_info, cabinet_current, cabinet_temp, cabinet_vol, hard_version, port_info, sim_iccid, soft_version, cabinet_rssi, electric_meter, work_vol, lon, lat, device_time, is_full, maker_code
+    </sql>
+
+</mapper>

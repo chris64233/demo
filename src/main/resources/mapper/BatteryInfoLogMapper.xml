@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.example.demo.dao.mapper.BatteryInfoLogMapper">
+
+    <!-- 通用查询映射结果 -->
+    <resultMap id="BaseResultMap" type="com.example.demo.dao.entity.BatteryInfoLog">
+                <id column="id" property="id" />
+                <result column="dev_id" property="devId" />
+                <result column="cur" property="cur" />
+                <result column="vol" property="vol" />
+                <result column="cell_temp" property="cellTemp" />
+                <result column="ambient_temp" property="ambientTemp" />
+                <result column="card_board_temp" property="cardBoardTemp" />
+                <result column="single_vol" property="singleVol" />
+                <result column="sn" property="sn" />
+                <result column="soc" property="soc" />
+                <result column="soh" property="soh" />
+                <result column="box_sn" property="boxSn" />
+                <result column="dc_vol" property="dcVol" />
+                <result column="dc_cur" property="dcCur" />
+                <result column="device_time" property="deviceTime" />
+    </resultMap>
+
+    <!-- 通用查询结果列 -->
+    <sql id="Base_Column_List">
+        id, dev_id, cur, vol, cell_temp, ambient_temp, card_board_temp, single_vol, sn, soc, soh, box_sn, dc_vol, dc_cur, device_time
+    </sql>
+
+</mapper>
