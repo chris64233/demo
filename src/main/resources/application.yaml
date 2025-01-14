@@ -157,3 +157,7 @@ fdfs:
 #    com.qhcx.magic.dao.ReconcileDetailMapper: debug
 
 
+zmdms:
+  redission: open
+
+

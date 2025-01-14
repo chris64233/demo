@@ -4,21 +4,21 @@ import com.example.demo.task.once.OnceTask;
 import com.example.demo.task.once.Task;
 import lombok.extern.slf4j.Slf4j;
 import org.redisson.api.RQueue;
-import org.springframework.scheduling.annotation.Scheduled;
-import org.springframework.stereotype.Component;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.RestController;
 
 import javax.annotation.Resource;
-import java.text.ParseException;
-import java.util.ArrayList;
+import java.util.Arrays;
 
 import static com.example.demo.task.once.PayTaskLock.PROFIT_SHARING;
 import static com.example.demo.task.once.PayTaskLock.SHARING_TASK;
 
 
 @Slf4j
-@Component
+@RestController
+@RequestMapping("/oncetask")
 public class TestTask {
 
     private final OnceTask onceTask;
@@ -30,33 +30,23 @@ public class TestTask {
         this.onceTask = onceTask;
     }
 
-    @Scheduled(cron = "0 0 0 * * ?")
-    public void sharing() {
-        test();
-    }
-
-    @GetMapping("/wx/sharingOrder")
-    public void sharingOrder(@RequestParam("taskId")String taskId) {
-        onceTask.exec(SHARING_TASK, taskId, () -> task.doTask(taskId));
-
-    }
-
-    private void test() {
-        RQueue<String> queue = onceTask.queueData(PROFIT_SHARING, "2024-12-25", () -> {
-            System.out.println("test once task");
-            return new ArrayList<>();
-        });
-
+    @GetMapping("/query")
+    public void query() {
+        RQueue<String> queue = onceTask.queueData(PROFIT_SHARING, "2024-12-25",
+                () -> Arrays.asList("一", "二", "三"));
         if (queue.isEmpty()) {
             return;
         }
 
-        String trxNo = null;
-        while ((trxNo = queue.poll()) != null) {
-
+        String x = null;
+        while ((x = queue.poll()) != null) {
+            System.out.println(x);
         }
-
     }
 
+    @GetMapping("/exec")
+    public void exec(@RequestParam("taskId") String taskId) {
+        onceTask.exec(SHARING_TASK, taskId, () -> task.doTask(taskId));
+    }
 
 }
