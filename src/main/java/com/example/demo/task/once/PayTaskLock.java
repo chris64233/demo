@@ -1,5 +1,6 @@
 package com.example.demo.task.once;
 
+
 /**
  * @author fands
  * @Title: PayTaskLock
@@ -10,12 +11,16 @@ package com.example.demo.task.once;
  */
 public enum PayTaskLock implements OnceTaskLock {
 
-    PROFIT_SHARING("pay:profitsharing:lock", "pay:profitsharing:queue", 300L),
+    PROFIT_SHARING("pay:profitsharing:lock", "pay:profitsharing:queue", 10L),
+    SHARING_TASK("pay:profittask:lock", "pay:profittask:queue", 10L),
     CHECK_SHARING("pay:checksharing:lock", "pay:checksharing:queue", 0L),
     PAY_TIMEOUT("pay:timeout:lock", "pay:timeout:queue", 0L),
     PAY_RESULT("pay:check:order:lock", "pay:check:order:queue", 0L),
-    REFUND_RETRY("pay:refund:try:lock", "pay:refund:try:queue", 10L),
+    REFUND_RETRY("pay:refund:try:lock", "pay:refund:try:queue", 0L),
     REFUND_CHECK("pay:refund:check:lock", "pay:refund:check:queue", 0L),
+    REFUND_NOTIFY("pay:refund:notify:lock", "pay:refund:notify:queue", 0L),
+    PAY_NOTIFY("pay:notify:lock", "pay:notify:queue", 0L),
+    WX_DOWNLOAD_BILL("pay:wx:bill:download:lock", "pay:wx:bill:download:queue", 0L),
     ;
 
     String lockKey;
