@@ -21,7 +21,7 @@ import org.springframework.test.context.junit4.SpringRunner;
 @RunWith(SpringRunner.class)
 @SpringBootTest
 @ActiveProfiles("local")
-public class  GeneratorServiceEntity_Order {
+public class GeneratorServiceEntity_Test {
 
     private String datasourceUrl;
 
@@ -33,19 +33,19 @@ public class  GeneratorServiceEntity_Order {
         String packageName = "com.example.demo.code_generator";
         boolean serviceNameStartWithI = false;//user -> UserService, 设置成true: user -> IUserService
         String moduleName = "";
-        GeneratorServiceEntity_Order entity = new GeneratorServiceEntity_Order();
+        GeneratorServiceEntity_Test entity = new GeneratorServiceEntity_Test();
         entity.initParam();
         String[] tables = {
-                "o_package_rule_relation"
+                "clear_flow_config"
         };
         entity.generateByTables(serviceNameStartWithI, packageName, moduleName,
                 tables);
     }
 
     private void initParam() {
-        password = "root";
         username = "root";
-        datasourceUrl = "jdbc:mysql://10.124.68.142:3306/qhcx_order?allowMultiQueries=true&useUnicode=true&characterEncoding=UTF-8&useSSL=true&zeroDateTimeBehavior=convertToNull&transformedBitIsBoolean=true&tinyInt1isBit=false&serverTimezone=GMT%2B8&allowPublicKeyRetrieval=true";
+        password = "12345678";
+        datasourceUrl = "jdbc:mysql://127.0.0.1:3306/test?allowMultiQueries=true&useUnicode=true&characterEncoding=UTF-8&useSSL=true&zeroDateTimeBehavior=convertToNull&transformedBitIsBoolean=true&tinyInt1isBit=false&serverTimezone=GMT%2B8&allowPublicKeyRetrieval=true";
     }
 
     private void generateByTables(boolean serviceNameStartWithI, String packageName, String moduleName, String... tableNames) {
@@ -66,7 +66,7 @@ public class  GeneratorServiceEntity_Order {
                 //.setDbColumnUnderline(true)
                 .setColumnNaming(NamingStrategy.underline_to_camel)
                 .setNaming(NamingStrategy.underline_to_camel)
-                .setTablePrefix("o")
+                .setTablePrefix("pay")
                 .setInclude(tableNames);//修改替换成你需要的表名，多个表名传数组
         config.setActiveRecord(false)
                 .setAuthor("yangchi")

@@ -277,8 +277,7 @@ public class RabbitMqNettyClientSendMsg {
 
     @org.junit.Test
     public void test20() {
-        String a = "";
-        System.out.println(a.isEmpty());
+        System.out.println(UUID.randomUUID().toString().replaceAll("-", ""));
     }
 
     @org.junit.Test

@@ -10,7 +10,7 @@ import org.springframework.stereotype.Service;
 * @author yangchi
 * @since 2024-12-10
 */
-@Service
+//@Service
 public class AllocationRuleDetailServiceImpl extends ServiceImpl<AllocationRuleDetailMapper, AllocationRuleDetail> implements AllocationRuleDetailService {
 
 }

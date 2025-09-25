@@ -1,4 +1,4 @@
-package com.example.demo.task.once;
+package com.example.demo.onceTask.once;
 
 import cn.hutool.core.collection.CollectionUtil;
 import lombok.extern.slf4j.Slf4j;

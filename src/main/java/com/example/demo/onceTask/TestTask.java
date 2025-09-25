@@ -1,7 +1,7 @@
-package com.example.demo.task;
+package com.example.demo.onceTask;
 
-import com.example.demo.task.once.OnceTask;
-import com.example.demo.task.once.Task;
+import com.example.demo.onceTask.once.OnceTask;
+import com.example.demo.onceTask.once.Task;
 import lombok.extern.slf4j.Slf4j;
 import org.redisson.api.RQueue;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -12,8 +12,8 @@ import org.springframework.web.bind.annotation.RestController;
 import javax.annotation.Resource;
 import java.util.Arrays;
 
-import static com.example.demo.task.once.PayTaskLock.PROFIT_SHARING;
-import static com.example.demo.task.once.PayTaskLock.SHARING_TASK;
+import static com.example.demo.onceTask.once.PayTaskLock.PROFIT_SHARING;
+import static com.example.demo.onceTask.once.PayTaskLock.SHARING_TASK;
 
 
 @Slf4j

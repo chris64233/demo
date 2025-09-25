@@ -7,7 +7,7 @@ spring:
     username: root
     password: 12345678
     driver-class-name: com.mysql.cj.jdbc.Driver
-    url: jdbc:mysql://127.0.0.1:3306/test?serverTimezone=Asia/Shanghai&useUnicode=true&characterEncoding=utf8&useSSL=false
+    url: jdbc:mysql://127.0.0.1:3306/test?allowPublicKeyRetrieval=true&serverTimezone=Asia/Shanghai&useUnicode=true&characterEncoding=utf8&useSSL=false
     type: com.alibaba.druid.pool.DruidDataSource
     druid:
       initial-size: 20
@@ -28,9 +28,9 @@ spring:
 #        max-wait: -1
 #        min-idle: 0
   redis:
-    host: 192.168.0.83
-    port: 3379
-    database: 15
+    host: localhost
+    port: 6379
+    database: 0
     #password:
     ssl: false
 #  rabbitmq:
@@ -103,10 +103,6 @@ xxl:
       port: 9999
       logpath: ./data/applogs/xxl-job/jobhandler
       logretentiondays: 30
-
-
-
-
 
 
 

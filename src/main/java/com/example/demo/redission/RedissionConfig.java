@@ -1,7 +1,7 @@
 package com.example.demo.redission;
 
 import cn.hutool.core.util.StrUtil;
-import com.example.demo.task.once.OnceTask;
+import com.example.demo.onceTask.once.OnceTask;
 import lombok.extern.slf4j.Slf4j;
 import org.redisson.Redisson;
 import org.redisson.api.RedissonClient;
